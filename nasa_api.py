@@ -199,8 +199,7 @@ api_key: string value of a valid api key must be used with request
 
 def getTodaysImage():
     ''' Create request string for todays image. Will return json for only a single file '''
-    today = datetime.today().date().strftime('%Y-%m-%d')
-    completeUrl = f'{baseUrl}?api_key={API_KEY}&date={today}&thumbs=true'
+    completeUrl = f'{baseUrl}?api_key={API_KEY}&date={todays_date}&thumbs=true'
     return getImages(completeUrl)
 
 def getRandomImages(count=15):
@@ -380,7 +379,7 @@ gallery_html = """
 </html>
 """
 
-os.chdir(sys.path[0])  # ensure we are working in the directory this file was executed
+os.chdir(sys.path[0])  # ensure we are working in the directory this file was executed from
 
 # ---------- create templates directory if it does not already exist --------- #
 
